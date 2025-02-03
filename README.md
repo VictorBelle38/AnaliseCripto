@@ -41,3 +41,7 @@ pip install -r requirements.txt
 ```
 streamlit run dashboard.py
 ```
+
+Após rodar esse comando, o Streamlit abrirá automaticamente no navegador, exibindo o dashboard com os gráficos e indicadores.
+
+
