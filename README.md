@@ -17,10 +17,27 @@ Instalação
 1- Clone o repositório:
 
 ```bash
-
 git clone https://github.com/VictorBelle38/AnaliseCripto.git
 cd AnaliseCripto
 ```
-2- Instale as dependências: Certifique-se de ter o Python instalado. Em seguida, instale as bibliotecas necessárias:
 
+2- Crie e ative um ambiente virtual:
 
+## No Windows (cmd/powershell):
+```
+python -m venv venv
+venv\Scripts\activate
+```
+## No macOS/Linux (terminal):
+```
+python3 -m venv venv
+source venv/bin/activate
+```
+3- Instale as dependências: Certifique-se de ter o Python instalado. Em seguida, instale as bibliotecas necessárias:
+```
+pip install -r requirements.txt
+```
+4- Execute o dashboard:
+```
+streamlit run dashboard.py
+```
