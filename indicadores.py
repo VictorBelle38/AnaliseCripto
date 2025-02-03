@@ -19,8 +19,8 @@ df['EMA_50'] = df['Close'].ewm(span=50,adjust= False).mean() # 50 Periodos
 # Cálculo do Índice de Força Relativa (RSI)
 def calculo_rsi(data, windows=14):
     delta = data.diff()
-    win = (delta.where(delta> 0,0)).rooling(window=window).mean()
-    loss = (delta.where(delta< 0,0)).rooling(window=window).mean()
+    win = (delta.where(delta> 0,0)).rolling(window=window).mean()
+    loss = (delta.where(delta< 0,0)).rolling(window=window).mean()
     rs = win/loss
     return 100 - (100 / (1 + rs))
 
