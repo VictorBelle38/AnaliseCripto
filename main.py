@@ -1,6 +1,5 @@
-import requests as re # type: ignore
-import json  # Para formatar a saída JSON de forma legível
-import pandas as pd # type: ignore
+import requests as re
+import pandas as pd 
 
 
 url = "https://api.binance.com/api/v3/klines"
