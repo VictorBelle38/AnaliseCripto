@@ -15,9 +15,12 @@ Observação: Todas as análises são baseadas nos últimos 100 candles disponí
 
 Instalação
 1- Clone o repositório:
-```bash
+```
+bash
+
 git clone https://github.com/VictorBelle38/AnaliseCripto.git
 cd AnaliseCripto
 ```
+2- Instale as dependências: Certifique-se de ter o Python instalado. Em seguida, instale as bibliotecas necessárias:
 
 
