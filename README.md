@@ -13,6 +13,10 @@ Este projeto é um dashboard automático desenvolvido por um entusiasta do merca
 ### Média de preço: Média dos valores dos últimos 100 candles.
 Observação: Todas as análises são baseadas nos últimos 100 candles disponíveis.
 
+Instalação
+1- Clone o repositório:
 
-
+`bash
+git clone https://github.com/VictorBelle38/AnaliseCripto.git
+cd AnaliseCripto`
 
