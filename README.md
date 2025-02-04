@@ -58,3 +58,32 @@ pip install -r requirements.txt
 # Execute localmente
 streamlit run dashboard.py
 
+
+```
+Roadmap (Next Features)
+Adição de novos pares (ADA, XRP)
+
+Alertas personalizados por Telegram
+
+Backtesting de estratégias
+
+Integração com Fear & Greed Index
+
+📈 Por Que Isso Importa?
+Mercado em crescimento: Volume diário de cripto ultrapassa US$ 100bi (CoinMarketCap 2023)
+
+Aplicações reais: Base para sistemas de trading algorítmico
+
+Escalabilidade: Arquitetura modular para novas funcionalidades
+
+💡 Diferenciais Profissionais
+Foco em dados: Processamento de séries temporais financeiras
+
+Visão de produto: UX otimizado para tomada de decisão
+
+Extensibilidade: Código documentado para colaboração
+
+🤝 Vamos Conversar?
+LinkedIn
+Email
+
