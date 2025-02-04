@@ -12,7 +12,7 @@ Este projeto é um dashboard automático desenvolvido por um entusiasta do merca
       <em>Visão Geral do Dashboard</em>
     </td>
     <td align="center">
-      <img src="assets/analises-tecnicas.png" width="400">
+      <img src="ImagensDashboard/IndicadoresTecnicos.png" width="400">
       <br>
       <em>Painel de Análises Técnicas</em>
     </td>
