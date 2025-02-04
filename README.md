@@ -14,7 +14,7 @@ Dashboard interativo para análise técnica de criptoativos (BTC, ETH, SOL, BNB)
 ✔️ Insights históricos fundamentais  
 ✔️ Base para estratégias quantitativas
 
-*"Nasci da minha paixão por mercados financeiros digitais e hoje processa 100+ dados por requisição para democratizar acesso à análise profissional"*
+*"Um projeto feito pela curiosidade e vontade de aprender unindo Data Science e o Mercado de Criptomeda, o qual tem me atraido todo interesse."*
 
 ## 🖥 Demonstração Visual
 <table align="center">
