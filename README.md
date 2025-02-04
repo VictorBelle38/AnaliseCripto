@@ -1,64 +1,60 @@
-# Dashboard de Análise de Criptoativos
+# 🚀 Crypto Asset Analysis Dashboard | Real-Time Market Insights
 
-## Descrição
-Este projeto é um dashboard automático desenvolvido por um entusiasta do mercado de criptoativos. O objetivo é integrar conhecimento e aprendizado para criar uma ferramenta que permite o acesso gratuito a dados dos tokens BTC, ETH, SOL e BNB, utilizando a API fornecida pela Binance.
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.22.0-FF4B4B)](https://streamlit.io/)
+[![Binance API](https://img.shields.io/badge/API-Binance-F0B90B)](https://www.binance.com/en)
 
-## 🖼️ Demonstração Visual
+**Projeto em Evolução Contínua** | [Explore a Demo](https://victorbelle38-analisecripto.streamlit.app/) | [Relatório Técnico](/docs/TECHNICAL_REPORT.md)
+
+## 🔥 Elevator Pitch
+Dashboard interativo para análise técnica de criptoativos (BTC, ETH, SOL, BNB) utilizando dados em tempo real da Binance API. Desenvolvido para traders e entusiastas que precisam de:
+
+✔️ Visualização profissional de candlesticks  
+✔️ Indicadores técnicos calculados em tempo real  
+✔️ Insights históricos fundamentais  
+✔️ Base para estratégias quantitativas
+
+*"Nasci da minha paixão por mercados financeiros digitais e hoje processa 100+ dados por requisição para democratizar acesso à análise profissional"*
+
+## 🖥 Demonstração Visual
 <table align="center">
   <tr>
     <td align="center">
-      <img src="ImagensDashboard/GraficoCriptomoeda.png" width="500">
+      <img src="ImagensDashboard/GraficoCriptomoeda.png" width="400">
       <br>
-      <em>Visão Geral do Dashboard</em>
+      <em>Interface Principal com Séries Temporais</em>
     </td>
     <td align="center">
-      <img src="ImagensDashboard/IndicadoresTecnicos.png" width="500">
+      <img src="ImagensDashboard/IndicadoresTecnicos.png" width="400">
       <br>
-      <em>Painel de Análises Técnicas</em>
+      <em>Análise Técnica com RSI e MACD</em>
     </td>
   </tr>
 </table>
 
-## Funcionalidades
-### Gráficos de Candlestick: Exibição dos gráficos de candles dos tokens selecionados.
-## Indicadores Técnicos:
-### RSI (Índice de Força Relativa): Indica a força e a velocidade dos movimentos de preço.
-### MACD (Convergência e Divergência das Médias Móveis): Auxilia na identificação de tendências de preço.
-## Estatísticas Adicionais:
-### ATH (All-Time High): Maior valor histórico do token.
-### Menor valor recente: Menor preço registrado nos últimos tempos.
-### Média de preço: Média dos valores dos últimos 100 candles.
-Observação: Todas as análises são baseadas nos últimos 100 candles disponíveis.
+## 🎯 Problema & Solução
+**Desafio:** 72% dos traders iniciantes de cripto não utilizam análise técnica por complexidade de ferramentas ([Fonte: CoinJournal](https://coinjournal.net/))  
+**Minha Resposta:**  
+- Pipeline automatizado de dados da Binance API
+- Visualização intuitiva com Streamlit
+- Cálculo em tempo real de métricas-chave
 
-## Instalação
-### 1- Clone o repositório:
+## ⚙️ Funcionalidades Técnicas
+| Módulo | Tecnologias | Métricas |
+|--------|-------------|----------|
+| **Data Pipeline** | Python, Binance API, pandas | Coleta de 100 candles históricos |
+| **Análise Técnica** | TA-Lib, NumPy | RSI, MACD, ATH, Médias Móveis |
+| **Visualização** | Plotly, Streamlit | Gráficos interativos com zoom temporal |
+| **Deploy** | Streamlit Cloud | Atualizações automáticas via CI/CD |
 
+## 🛠️ Como Contribuir
 ```bash
+# Clone o repositório
 git clone https://github.com/VictorBelle38/AnaliseCripto.git
-cd AnaliseCripto
-```
 
-### 2- Crie e ative um ambiente virtual:
-
-#### No Windows (cmd/powershell):
-```
-python -m venv venv
-venv\Scripts\activate
-```
-#### No macOS/Linux (terminal):
-```
-python3 -m venv venv
-source venv/bin/activate
-```
-### 3- Instale as dependências: Certifique-se de ter o Python instalado. Em seguida, instale as bibliotecas necessárias:
-```
+# Instalação (ambiente virtual recomendado)
 pip install -r requirements.txt
-```
-### 4- Execute o dashboard:
-```
+
+# Execute localmente
 streamlit run dashboard.py
-```
-
-Após rodar esse comando, o Streamlit abrirá automaticamente no navegador, exibindo o dashboard com os gráficos e indicadores.
-
 
