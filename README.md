@@ -65,8 +65,6 @@ streamlit run dashboard.py
 
 - Alertas personalizados por Telegram
 
-- Backtesting de estratégias
-
 - Integração com Fear & Greed Index
 
 ## 📈 Por Que Isso Importa?
