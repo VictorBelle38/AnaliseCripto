@@ -83,7 +83,3 @@ streamlit run dashboard.py
 
 - Extensibilidade: Código documentado para colaboração
 
-## 🤝 Vamos Conversar?
-LinkedIn
-Email
-
