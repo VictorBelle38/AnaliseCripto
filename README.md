@@ -30,31 +30,31 @@ Este projeto é um dashboard automático desenvolvido por um entusiasta do merca
 ### Média de preço: Média dos valores dos últimos 100 candles.
 Observação: Todas as análises são baseadas nos últimos 100 candles disponíveis.
 
-Instalação
-1- Clone o repositório:
+## Instalação
+### 1- Clone o repositório:
 
 ```bash
 git clone https://github.com/VictorBelle38/AnaliseCripto.git
 cd AnaliseCripto
 ```
 
-2- Crie e ative um ambiente virtual:
+### 2- Crie e ative um ambiente virtual:
 
-## No Windows (cmd/powershell):
+#### No Windows (cmd/powershell):
 ```
 python -m venv venv
 venv\Scripts\activate
 ```
-## No macOS/Linux (terminal):
+#### No macOS/Linux (terminal):
 ```
 python3 -m venv venv
 source venv/bin/activate
 ```
-3- Instale as dependências: Certifique-se de ter o Python instalado. Em seguida, instale as bibliotecas necessárias:
+### 3- Instale as dependências: Certifique-se de ter o Python instalado. Em seguida, instale as bibliotecas necessárias:
 ```
 pip install -r requirements.txt
 ```
-4- Execute o dashboard:
+### 4- Execute o dashboard:
 ```
 streamlit run dashboard.py
 ```
