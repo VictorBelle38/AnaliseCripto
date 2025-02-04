@@ -1,6 +1,23 @@
 # Dashboard de Análise de Criptoativos
+
 ## Descrição
 Este projeto é um dashboard automático desenvolvido por um entusiasta do mercado de criptoativos. O objetivo é integrar conhecimento e aprendizado para criar uma ferramenta que permite o acesso gratuito a dados dos tokens BTC, ETH, SOL e BNB, utilizando a API fornecida pela Binance.
+
+## 🖼️ Demonstração Visual
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="assets/dashboard-principal.png" width="400">
+      <br>
+      <em>Visão Geral do Dashboard</em>
+    </td>
+    <td align="center">
+      <img src="assets/analises-tecnicas.png" width="400">
+      <br>
+      <em>Painel de Análises Técnicas</em>
+    </td>
+  </tr>
+</table>
 
 ## Funcionalidades
 ### Gráficos de Candlestick: Exibição dos gráficos de candles dos tokens selecionados.
