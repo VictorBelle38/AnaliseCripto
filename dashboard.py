@@ -5,6 +5,34 @@ import requests
 import mplfinance as mpf
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
+from bs4 import BeautifulSoup
+import plotly.graph_objects as go
+
+# Function definitions
+def get_fear_and_greed_index():
+    try:
+        url = "https://api.alternative.me/fng/"
+        response = requests.get(url)
+        if response.status_code == 200:
+            data = response.json()
+            return int(data['data'][0]['value'])
+    except:
+        return 50  # Return neutral value if API call fails
+    return 50
+
+def get_fear_greed_status(value):
+    if value >= 0 and value <= 25:
+        return "Extreme Fear"
+    elif value > 25 and value <= 45:
+        return "Fear"
+    elif value > 45 and value <= 55:
+        return "Neutral"
+    elif value > 55 and value <= 75:
+        return "Greed"
+    elif value > 75 and value <= 100:
+        return "Extreme Greed"
+    else:
+        return "Invalid Value"
 
 # Configuração da Página
 st.set_page_config(page_title="Dashboard de Criptomoedas", layout="wide")
@@ -16,6 +44,43 @@ token = st.sidebar.selectbox(
     ["BTCUSDT", "ETHUSDT", "SOLUSDT", "BNBUSDT"]
 )
 
+# Add Fear & Greed Index to sidebar
+fear_greed_value = get_fear_and_greed_index()
+status = get_fear_greed_status(fear_greed_value)
+
+st.sidebar.markdown("---")  # Separator
+st.sidebar.markdown("### Fear & Greed Index")
+
+# Create a smaller gauge for the sidebar
+sidebar_gauge = go.Figure(go.Indicator(
+    mode="gauge+number",
+    value=fear_greed_value,
+    domain={'x': [0, 1], 'y': [0, 1]},
+    title={'text': status, 'font': {'size': 14}},
+    gauge={
+        'axis': {'range': [0, 100]},
+        'bar': {'color': "lightblue"},
+        'steps': [
+            {'range': [0, 25], 'color': "red"},
+            {'range': [25, 45], 'color': "orange"},
+            {'range': [45, 55], 'color': "yellow"},
+            {'range': [55, 75], 'color': "lightgreen"},
+            {'range': [75, 100], 'color': "green"}
+        ],
+        'threshold': {
+            'line': {'color': "white", 'width': 4},
+            'thickness': 0.75,
+            'value': fear_greed_value
+        }
+    }
+))
+
+sidebar_gauge.update_layout(
+    height=200,  # Smaller height for sidebar
+    margin=dict(l=10, r=10, t=30, b=10),  # Reduced margins
+)
+
+st.sidebar.plotly_chart(sidebar_gauge, use_container_width=True)
 
 # Função para buscar dados da Binance
 def get_crypto_data(symbol, interval="1h", limit=100):
@@ -77,7 +142,7 @@ if df is not None:
     col1, col2 = st.columns([2, 1])
     
     with col1:
-        st.title(f"📊 {token} Analysis")
+        st.title(f"📊 {token} Analise")
         
         # Convertendo dados para mplfinance
         df_mpf = df.set_index('Open_Time')
@@ -145,10 +210,10 @@ if df is not None:
         plt.title("MACD")
         plt.legend()
         plt.grid(True)
-
+        
         st.pyplot(fig_macd)
 
-    # Statistics
+    # 
     st.subheader("📊 Estatísticas de Preço")
     
     col5, col6, col7 = st.columns(3)
@@ -159,6 +224,8 @@ if df is not None:
         st.metric("Menor Preço", f"{df['Low'].min():.2f}")
     with col7:
         st.metric("Preço Médio", f"{df['Close'].mean():.2f}")
+
+
 
 else:
     st.error("Falha ao buscar dados da API da Binance")
