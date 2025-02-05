@@ -65,7 +65,7 @@ streamlit run dashboard.py
 
 - Alertas personalizados por Telegram
 
-- Integração com Fear & Greed Index
+- Integração com Fear & Greed Index ✅
 
 ## 📈 Por Que Isso Importa?
 - Mercado em crescimento: Volume diário de cripto ultrapassa US$ 100bi (CoinMarketCap 2023)
