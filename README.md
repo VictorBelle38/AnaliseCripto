@@ -63,7 +63,7 @@ streamlit run dashboard.py
 ```
 ## 🔥 Roadmap (Next Features)
 - Adição de novos pares (ADA, XRP)✅
-  Obs: Foi adicionado diversos pares dentro do Gráfico para um aumento de ativos para se monitorar!
+      -Obs: Foi adicionado diversos pares dentro do Dashboard para um aumento de ativos para se monitorar!
 - Alertas personalizados por Telegram
 
 - Integração com Fear & Greed Index ✅
