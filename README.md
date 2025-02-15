@@ -44,7 +44,7 @@ Dashboard interativo para análise técnica de criptoativos (BTC, ETH, SOL, BNB)
 |--------|-------------|----------|
 | **Data Pipeline** | Python, Binance dAPI, pandas | Coleta de 100 candles históricos |
 | **Informações** | BeautifulSoup4, Requests | Request de informações |
-| **Análise Técnica** | NumPy | RSI, MACD, ATH, Médias Móveis |
+| **Análise Técnica** | NumPy, MatplotLib, MPLFinance | RSI, MACD, ATH, Médias Móveis |
 | **Visualização** | Plotly, Streamlit | Gráficos interativos com zoom temporal |
 | **Deploy** | Streamlit Cloud | Atualizações automáticas via CI/CD |
 
