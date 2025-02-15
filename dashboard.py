@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 import plotly.graph_objects as go
 
-# Function definitions
+# Funções
 def get_fear_and_greed_index():
     try:
         url = "https://api.alternative.me/fng/"
@@ -17,7 +17,7 @@ def get_fear_and_greed_index():
             data = response.json()
             return int(data['data'][0]['value'])
     except:
-        return 50  # Return neutral value if API call fails
+        return 50  
     return 50
 
 def get_fear_greed_status(value):
@@ -41,17 +41,17 @@ st.set_page_config(page_title="Dashboard de Criptomoedas", layout="wide")
 st.sidebar.title("💹 Dashboard de Criptomoedas")
 token = st.sidebar.selectbox(
     "Escolha o Token!",
-    ["BTCUSDT", "ETHUSDT", "SOLUSDT", "BNBUSDT"]
+    ["BTCUSDT", "ETHUSDT", "SOLUSDT", "BNBUSDT", "XRPUSDT", "ADAUSDT", "DOGEUSDT", "DOTUSDT", "LINKUSDT", "LTCUSDT", "BCHUSDT", "XMRUSDT", "XLMUSDT", "XRPUSDT", "ADAUSDT", "DOGEUSDT", "DOTUSDT", "LINKUSDT", "LTCUSDT", "BCHUSDT", "XMRUSDT", "XLMUSDT"]
 )
 
-# Add Fear & Greed Index to sidebar
+# Adicionar o Fear & Greed Index
 fear_greed_value = get_fear_and_greed_index()
 status = get_fear_greed_status(fear_greed_value)
 
 st.sidebar.markdown("---")  # Separator
 st.sidebar.markdown("### Fear & Greed Index")
 
-# Create a smaller gauge for the sidebar
+# Gauge para o Fear & Greed Index
 sidebar_gauge = go.Figure(go.Indicator(
     mode="gauge+number",
     value=fear_greed_value,
@@ -76,8 +76,8 @@ sidebar_gauge = go.Figure(go.Indicator(
 ))
 
 sidebar_gauge.update_layout(
-    height=200,  # Smaller height for sidebar
-    margin=dict(l=10, r=10, t=30, b=10),  # Reduced margins
+    height=200,  # Tamanho da Gauge
+    margin=dict(l=10, r=10, t=30, b=10),  # Margens
 )
 
 st.sidebar.plotly_chart(sidebar_gauge, use_container_width=True)
@@ -100,7 +100,7 @@ def get_crypto_data(symbol, interval="1h", limit=100):
             'Base_Asset_Volume', 'Number_Of_Trades', 'Taker_Buy_Volume', 'Taker_Buy_Asset', 'ignore'
         ])
         
-        # Convert data types
+        # Converter data types
         df['Open_Time'] = pd.to_datetime(df['Open_Time'], unit='ms')
         numeric_columns = ['Open', 'High', 'Low', 'Close', 'Volume']
         df[numeric_columns] = df[numeric_columns].astype(float)
@@ -108,7 +108,7 @@ def get_crypto_data(symbol, interval="1h", limit=100):
         return df[['Open_Time', 'Open', 'High', 'Low', 'Close', 'Volume', 'Number_Of_Trades']]
     return None
 
-# Get data
+# Pegar dados
 df = get_crypto_data(token)
 
 if df is not None:
@@ -138,7 +138,7 @@ if df is not None:
     df['MACD'] = df['EMA_12'] - df['EMA_26']
     df['Signal'] = df['MACD'].ewm(span=9, adjust=False).mean()
 
-    # Dashboard Layout
+    # Layout do Dashboard
     col1, col2 = st.columns([2, 1])
     
     with col1:
@@ -147,20 +147,42 @@ if df is not None:
         # Convertendo dados para mplfinance
         df_mpf = df.set_index('Open_Time')
 
-        # Gerando o gráfico corretamente com mplfinance
+        # Criando um estilo personalizado para o gráfico
+        mc = mpf.make_marketcolors(up='#26a69a',        # Verde para compra
+                                  down='#ef5350',        # Vermelho para venda
+                                  edge='inherit',
+                                  wick={'up': '#26a69a', 'down': '#ef5350'},  # Wicks
+                                  volume={'up': '#26a69a', 'down': '#ef5350'}, # Volume
+                                  inherit=True)
+        
+        s = mpf.make_mpf_style(marketcolors=mc,
+                              gridstyle='--',
+                              gridcolor='#0e1117',
+                              facecolor='#0e1117',
+                              figcolor='#0e1117',
+                              y_on_right=True,
+                              rc={'axes.labelcolor': '#0e1117',
+                                  'axes.edgecolor': '#0e1117',
+                                  'xtick.color': 'white',
+                                  'ytick.color': 'white',
+                                  'text.color': 'white'})
+
+        # Gráfico com estilo personalizado
         fig, ax = mpf.plot(
             df_mpf,
             type='candle',
-            style='charles',
-            title=f'{token} Gráfico de Preço',
+            style=s,
+            title=f'{token} Gráfico 1HR',
             ylabel='Preço (USDT)',
             ylabel_lower='Volume',
-            volume=True,
-            returnfig=True  # Retorna a figura e os eixos corretamente
-
+            volume=False,
+            returnfig=True
         )
 
-        st.pyplot(fig)  # Renderiza o gráfico no Streamlit
+        # Definir o background da figura para preto
+        fig.patch.set_facecolor('black')
+        
+        st.pyplot(fig)
     
     with col2:
         # Preço Atual e Variação de 24h
@@ -219,11 +241,11 @@ if df is not None:
     col5, col6, col7 = st.columns(3)
     
     with col5:
-        st.metric("ATH", f"{df['High'].max():.2f}")
+        st.metric("Maior Preço nas ultimas 100h", f"{df['High'].max():.2f}")
     with col6:
-        st.metric("Menor Preço", f"{df['Low'].min():.2f}")
+        st.metric("Menor Preço nas ultimas 100h", f"{df['Low'].min():.2f}")
     with col7:
-        st.metric("Preço Médio", f"{df['Close'].mean():.2f}")
+        st.metric("Preço Médio nas ultimas 100h", f"{df['Close'].mean():.2f}")
 
 
 
